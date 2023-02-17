@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class Input extends Component {
+  constructor(props) {
+    super(props);
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    let form = e.target;
+    console.log(form.task.value);
+  }
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <label>
+          Task Input: <input name="task"></input>
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+    );
+  }
 }
-
-export default App;
