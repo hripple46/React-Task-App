@@ -1,11 +1,15 @@
 import React, { Component } from "react";
+import App from "../App";
 
-export class List extends Component {
+export default class Overview extends Component {
   constructor(props) {
     super(props);
   }
-
   render() {
-    return <h1>{this.props.array}</h1>;
+    return (
+      <div>
+        <div>{this.props.taskList}</div>
+      </div>
+    );
   }
 }

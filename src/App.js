@@ -1,25 +1,41 @@
-import logo from "./logo.svg";
-import "./App.css";
 import React, { Component } from "react";
+import Overview from "./components/Overview";
 
-export default class Input extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      task: "",
+      tasks: [],
+    };
+    this.readValue = this.readValue.bind(this);
   }
-  handleSubmit(e) {
-    e.preventDefault();
-    let form = e.target;
-    console.log(form.task.value);
-  }
+  readValue = (e) => {
+    this.setState({
+      task: e.target.value,
+    });
+    console.log(this.state.task);
+  };
+
+  addTask = () => {
+    this.setState({
+      tasks: this.state.tasks.concat([this.state.task]),
+    });
+  };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Task Input: <input name="task"></input>
-        </label>
-        <button type="submit">Submit</button>
-      </form>
+      <div>
+        <input
+          onChange={this.readValue}
+          name="task"
+          type="text"
+          value={this.state.task}
+        ></input>
+        <button onClick={this.addTask} type="submit"></button>
+        <Overview taskList={this.state.tasks} />
+      </div>
     );
   }
 }
