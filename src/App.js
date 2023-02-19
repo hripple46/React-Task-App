@@ -34,13 +34,21 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <input
-          onChange={this.readValue}
-          name="task"
-          type="text"
-          value={this.state.task.text}
-        ></input>
-        <button onClick={this.addTask} type="submit"></button>
+        <div className="container">
+          <input
+            className="userInput"
+            onChange={this.readValue}
+            name="task"
+            type="text"
+            value={this.state.task.text}
+          ></input>
+          <button
+            className="button"
+            onClick={this.addTask}
+            type="submit"
+          ></button>
+        </div>
+
         <Overview taskList={this.state.tasks} />
       </div>
     );

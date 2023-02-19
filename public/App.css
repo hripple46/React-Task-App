@@ -1,0 +1,12 @@
+.button {
+  height: 36px;
+  width: 36px;
+}
+.userInput {
+  height: 36px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
