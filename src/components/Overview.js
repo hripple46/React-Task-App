@@ -7,9 +7,11 @@ export default class Overview extends Component {
   }
   render() {
     return (
-      <div>
-        <div>{this.props.taskList}</div>
-      </div>
+      <ul>
+        {this.props.taskList.map((str) => {
+          return <li key={str.toString()}> {str}</li>;
+        })}
+      </ul>
     );
   }
 }
